@@ -28,7 +28,7 @@ void reader(){
     rc--;
     if(rc==0) signal(data); //release the access to shared data
     signal(mutex); //release process to change rc
-}```
+}
 
 //Writer Process
 void writer(){
