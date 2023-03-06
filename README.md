@@ -6,6 +6,7 @@ In the reader-writer problem, readers can safely access the shared resource simu
 
 # Pseudo code
 ```C++ int rc=0;  //counts the number of readers reading shared data
+int rc=0;  //counts the number of readers reading shared data
 binary semaphore mutex=1; //provides access to change rc
 counting semaphore order=1; //To maintain queue of process which are willing to access shared data in FIFO order
 
