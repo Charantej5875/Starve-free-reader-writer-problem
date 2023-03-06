@@ -15,11 +15,11 @@ binary semaphore data=1;  //To maintain access to shared data
 void reader(){
     //entry section
     wait(order); //wait in queue for its chance to get executed
-    wait(mutex);
+    wait(mutex); //to maintain mutual exclusion
     rc++;
     if(rc==1) wait(data);  //wait process for access to shared data
     signal(order); //allowing next process in queue to get executed    
-    signal(mutex);
+    signal(mutex); //
 
     //critical section
     
