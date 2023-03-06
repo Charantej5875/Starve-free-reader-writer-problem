@@ -7,7 +7,7 @@ binary semaphore data=1;  //To maintain access to shared data
 //Reader Process
 void reader(){
     //entry section
-    wait(order); //wait in queue for its chance to get executed
+    wait(order); //wait process in queue for its chance to get executed
     wait(mutex); //wait process to change rc
     rc++;
     if(rc==1) wait(data);  //wait process for access to shared data
