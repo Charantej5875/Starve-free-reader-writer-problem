@@ -9,7 +9,7 @@ In the reader-writer problem, readers can safely access the shared resource simu
 binary semaphore mutex=1; //provides access to change rc
 counting semaphore order=1; //To maintain queue of process which are willing to access shared data in FIFO order
 
-binary semaphore data=1;  //To maintain access to shared data<br>
+binary semaphore data=1;  //To maintain access to shared data
 
 //Reader Process
 void reader(){
@@ -18,7 +18,7 @@ void reader(){
     wait(mutex);
     rc++;
     if(rc==1) wait(data);  //wait process for access to shared data
-    signal(order);                     //allowing next process in queue to get executed    
+    signal(order); //allowing next process in queue to get executed    
     signal(mutex);
 
     //critical section
@@ -26,21 +26,21 @@ void reader(){
     //exit section
     wait(mutex);
     rc--;
-    if(rc==0) signal(data);     //release the access to shared data
+    if(rc==0) signal(data); //release the access to shared data
     signal(mutex);
 }```
 
 //Writer Process
 void writer(){
     //entry section
-    wait(order);                       //wait process in queue for its chance to get executed
-    wait(data);                     //wait for access to shared data
-    signal(order);                     //allowing next process in queue to get executed
+    wait(order);  //wait process in queue for its chance to get executed
+    wait(data); //wait for access to shared data
+    signal(order);  //allowing next process in queue to get executed
 
     //critical section
     
     //exit section
-    signal(data);                   //release the access to shared data
+    signal(data); //release the access to shared data
 }
 ```
 # Pseudo code expalanation
